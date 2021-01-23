@@ -1,10 +1,10 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/styles';
-import Grid from '@material-ui/core/Grid';
 import IniciarSesion from '../iniciarSesion/main';
 import VerticalLogo from '../verticalLogo/main'
 import Footer from '../Footer/main'
+import CardContent from '@material-ui/core/CardContent';
 
 
 const stylesRightScreen = theme => ({
@@ -13,6 +13,7 @@ const stylesRightScreen = theme => ({
   },
   right_container: {
     margin: "50px",
+    minHeight: "600px"
   },
   sans_serif: {
     fontFamily: '"Open Sans", sans-serif',
@@ -20,31 +21,54 @@ const stylesRightScreen = theme => ({
     lineHeight: 1.6,
     color: "grey",
   },
+
+  buttons_container: {
+    maxWidth: "100%",
+
+  },
+
+  card: {
+    position: "relative",
+    marginLeft: "7%",
+    marginRight: "10%", 
+    height: "100%",
+    padding: 0, 
+    textAlign: "justify",
+    [theme.breakpoints.down('sm')]: {
+      width: "50%",
+      margin: "0 auto",
+      textAlign: "center",
+    }
+  }
   });
 
 class RightScreen extends React.Component {
 
     render() {
         const { classes } = this.props;
+        
 
         return(
-          <Grid container direction={'column'} spacing={0} style={{ height: "100%" }}>
-              < VerticalLogo/>
-              <Grid item xs={1} className={classes.max_width} style={{marginTop: "5%"}}>
-                <Typography variant="body2" align="justify" className={classes.sans_serif}>Accede a la plataforma de rehabilitación Trak. Si eres fisioterapeuta
-        o médico accede como administrador, si eres la persona que va a realizar
-        los ejercicios accede como paciente</Typography>
-              </Grid>
-              <Grid item xs={1} className={classes.max_width} style={{marginTop: "5%"}}>
+          <div className={classes.card}>
+              <div style={{height: "10%"}}></div>
+              <div style={{height: "30%", minHeight: "200px"}}>
+                  < VerticalLogo/>
+              </div>
+              <div style={{height: "20%", minHeight: "150px"}}>
+                <Typography variant="body2" className={classes.sans_serif}>Accede a la plataforma de rehabilitación Trak. Si eres fisioterapeuta
+            o médico accede como administrador, si eres la persona que va a realizar
+            los ejercicios accede como paciente</Typography>
+              </div>
+              <div style={{height: "20%", minHeight: "150px"}}>
                 <IniciarSesion />
-              </Grid>
-              <Grid item xs={1} className={classes.max_width} style={{marginTop: "15%"}}> 
+              </div>
+              <div style={{height: "20%", minHeight: "150px"}}>
                 <Typography variant="body2">¿Todavia no tienes cuenta? Solicita tu versión de prueba <a href="mailto:dani@trak.es?cc=carlos@trak.es &subject=Password olvidado&body=Hola Trak! Soy el usuario: {tu_dni} y he olvidado el password. Saludos!">aquí</a></Typography>
-              </Grid>
-              <Grid item style={{height: "30px"}}>
-                <Footer/>
-              </Grid>
-            </Grid>  
+              </div >
+              <div>
+                <Footer/> 
+              </div>
+            </div>
           )
     }
   }

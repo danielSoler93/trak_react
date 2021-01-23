@@ -1,7 +1,6 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/styles';
 
 
@@ -11,13 +10,28 @@ const stylesInicarSesion = theme => ({
 
   margin_top: {
     marginTop: "10px",
+    margin: "auto",
+    textAlign: "center",
+    width: "100%",
   },
   h6: {
     fontFamily: "Tahoma",
     fontWeight: 600,
+    fontSize: "25px"
   },
 
-  button_iniciar_sesion: {
+  button_iniciar_sesion1: {
+    marginTop: "2%",
+    padding: "5px",
+    width: "140px",
+    marginRight: "30px",
+    [theme.breakpoints.down('xs')]: {
+      marginRight: 0, 
+    }
+  },
+
+  button_iniciar_sesion2: {
+    marginTop: "2%",
     padding: "5px",
     width: "140px",
   },
@@ -36,14 +50,10 @@ class IniciarSesion extends React.Component {
         return(
             <div>
             <Typography variant="h6" className={classes.h6}>Iniciar Sesion</Typography>
-            <Grid container spacing={3}  className={classes.margin_top}>
-              <Grid item xs={5}>
-                <Button variant="contained" color="primary" size="small" className={classes.button_iniciar_sesion}>Cliente</Button>
-              </Grid>
-              <Grid item xs={5}>
-                <Button variant="contained" color="primary" size="small" className={classes.button_iniciar_sesion}>Administrador</Button>
-              </Grid>
-            </Grid>
+                <div class="flexbox">
+                  <Button variant="contained" color="primary" size="small" className={classes.button_iniciar_sesion1}>Cliente</Button>
+                  <Button variant="contained" color="primary" size="small" className={classes.button_iniciar_sesion2}>Administrador</Button>
+                </div>
             </div>
             )
     }
