@@ -48,7 +48,6 @@ const stylesInicarSesion = theme => ({
 
 class IniciarSesion extends React.Component {
 
-
     render() {
 
         const { classes } = this.props;
