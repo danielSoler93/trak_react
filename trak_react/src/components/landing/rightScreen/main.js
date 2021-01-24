@@ -4,7 +4,6 @@ import { withStyles } from '@material-ui/styles';
 import IniciarSesion from '../iniciarSesion/main';
 import VerticalLogo from '../verticalLogo/main'
 import Footer from '../Footer/main'
-import CardContent from '@material-ui/core/CardContent';
 
 
 const stylesRightScreen = theme => ({

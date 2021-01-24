@@ -7,6 +7,8 @@ import Grid from '@material-ui/core/Grid';
 
 
 
+
+
 const styles_logo = theme => ({
     logo_image: {
       width: 124,
@@ -28,10 +30,10 @@ class VerticalLogo extends React.Component {
         const { classes } = this.props;
 
         return(
-          <Grid item xs={4} className={classes.height_big}> 
-            <Avatar alt="Trak logo" src={logo} variant="square" className={classes.logo_image} style={{ marginTop: "30%"}}/>
+           <div>
+            <Avatar alt="Trak logo" src={logo} variant="square" className={classes.logo_image}/>
             <Typography variant="h3" component="h2" align="center" className={classes.logo_text}>TRAK</Typography>
-          </Grid> 
+            </div>
           )
     }
   }
