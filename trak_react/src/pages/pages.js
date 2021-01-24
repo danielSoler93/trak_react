@@ -1,6 +1,6 @@
 
 const  clientLoginURL = "/clientLogin"
-const  adminLoginURL = "/clientLogin"
+const  adminLoginURL = "/adminLogin"
 
 export  default {
     clientLoginURL,

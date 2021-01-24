@@ -3,8 +3,7 @@ import React from 'react';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/core/styles';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
-import clientLoginURL from './pages/pages'
-import adminLoginURL from './pages/pages'
+import URLS from './pages/pages'
 
 //components
 import LandingPage from './pages/index'
@@ -38,8 +37,8 @@ function App() {
       <ThemeProvider theme={outerTheme}>
         <Switch>
           <Route exact path={"/"} component={LandingPage}></Route>
-          <Route path={clientLoginURL} component={ClientPage}></Route>
-          <Route path={adminLoginURL} component={AdminPage}></Route>
+          <Route path={URLS.clientLoginURL} component={ClientPage}></Route>
+          <Route path={URLS.adminLoginURL} component={AdminPage}></Route>
 
         </Switch>
       </ThemeProvider>
