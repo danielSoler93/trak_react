@@ -9,7 +9,8 @@ class AdminPage extends React.Component {
     render() {
         return(
             <TwoScreen leftScreen={<LeftScreen/>} 
-            rightScreen={<RightScreen/>}
+            rightScreen={<RightScreen
+            text={"Accede al panel administrador"}/>}
             widthLeft={"60%"}
             widthRight={"40%"} />
             )

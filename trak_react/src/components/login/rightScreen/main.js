@@ -34,13 +34,34 @@ const stylesRightScreen = theme => ({
     textAlign: "center",
     margin: "auto",
     [theme.breakpoints.down('sm')]: {
-      width: "50%",
+      width: "70%",
+      margin: "auto",
       
     }
   }
   });
 
 class RightScreen extends React.Component {
+
+    constructor(props) {
+      super(props);
+      this.valueCheckBox = false;
+    }
+
+    checkTerminosyAccede() {
+      if(this.valueCheckBox == false) {
+        { alert('Accepta los términos y condiciones') }
+      }
+    }
+
+    handleChange() {
+      console.log("A")
+      if(this.valueCheckBox == false) {
+        this.valueCheckBox = true;
+      } else {
+        this.valueCheckBox = false;
+      }
+    }
 
     render() {
         const { classes } = this.props;
@@ -49,23 +70,25 @@ class RightScreen extends React.Component {
         return(
           <div className={classes.card}>
           <div style={{height: "10%"}}></div>
-          <div style={{height: "30%", minHeight: "200px"}}>
-              < VerticalLogo/>
+          <div style={{height: "25%", minHeight: "150px"}}>
+              < VerticalLogo center={"auto"}
+              fontFamily={"sans-serif"} 
+              fontWeight={"100"}/>
           </div>
-          <div style={{height: "10%", minHeight: "50px"}}>
-            <Typography variant="body2" className={classes.sans_serif}>Accede al panel administrador</Typography>
+          <div style={{height: "15%", minHeight: "50px"}}>
+            <Typography variant="body2" className={classes.sans_serif}>{this.props.text}</Typography>
           </div>
           <div style={{height: "10%", minHeight: "50px", margin: "auto", width: "70%"}}>
-            <Typography variant="body2">¿No tiene cuenta? <a href="">Solicite acceso</a> mediante tu fisioterapéutica o médico rehabilitador</Typography>
+            <Typography variant="body2">¿No tiene cuenta? <a href="https://www.trak.es/">Solicite acceso</a> mediante tu fisioterapéutica o médico rehabilitador</Typography>
           </div>
           <div style={{height: "25%", minHeight: "150px"}}>
             <div style={{display: "block"}}>
               <TextField size="small" id="outlined-basic" label="Email" color="primary" margin="normal"  required="true" variant="outlined" style={{width: "70%"}}/>
-              <TextField size="small" id="outlined-basic" label="Password" color="primary" variant="outlined" required="true" style={{width: "70%"}}/>
+              <TextField size="small" type="password" id="outlined-basic" label="Password" color="primary" variant="outlined" required="true" style={{width: "70%"}}/>
               <FormControlLabel
               control={<Checkbox
             //checked={state.checkedB}
-            //onChange={handleChange}
+            onChange={() => this.handleChange()}
             color="primary"
           />}
           label="Términos y condiciones"
@@ -73,7 +96,10 @@ class RightScreen extends React.Component {
             </div>
           </div>
           <div style={{height: "10%", minHeight: "50px"}}>
-            <Button variant="contained" color="primary" size="large">Acceder</Button>
+            <Button onClick={() => this.checkTerminosyAccede() } 
+            variant="contained" 
+            color="primary" 
+            size="large">Acceder</Button>
           </div>
           <div style={{height: "10%", minHeight: "50px"}}>
             <Typography variant="body2"><a href="#">Olvidaste tu contraseña?</a></Typography>
