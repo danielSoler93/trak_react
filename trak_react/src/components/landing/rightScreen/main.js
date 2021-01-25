@@ -51,7 +51,8 @@ class RightScreen extends React.Component {
           <div className={classes.card}>
               <div style={{height: "10%"}}></div>
               <div style={{height: "30%", minHeight: "200px"}}>
-                  < VerticalLogo/>
+                  < VerticalLogo center={""}
+                  fontFamily={"Tahoma"}/>
               </div>
               <div style={{height: "20%", minHeight: "150px"}}>
                 <Typography variant="body2" className={classes.sans_serif}>Accede a la plataforma de rehabilitación Trak. Si eres fisioterapeuta
