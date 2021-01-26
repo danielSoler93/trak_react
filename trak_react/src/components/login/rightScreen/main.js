@@ -51,6 +51,7 @@ class RightScreen extends React.Component {
       super(props);
       this.valueCheckBox = false;
       this.color_forget = "";
+      this.handleSubmit = this.handleSubmit.bind(this);
       this.state = { "dni": '', "password": '', "conditions": false };
     }
 
@@ -81,14 +82,14 @@ class RightScreen extends React.Component {
       if (this.valueCheckBox == false) {
         return false
       }
-      axios.post(url, this.state)
+      axios.post(this.props.postURL, this.state)
       .then(res => {
         if(res.data.response == false) {
           this.color_forget = "red"
-          this.props.history.push(URLS.clientLoginURL);
+          this.props.history.push(this.props.currentURL);
         } else {
           this.color_forget = ""
-          this.props.history.push(URLS.adminLoginURL); 
+          this.props.history.push(res.data.url); 
         }
       })
       .catch(error => {console.log(error)})
@@ -113,7 +114,7 @@ class RightScreen extends React.Component {
           <div style={{height: "10%", minHeight: "50px", margin: "auto", width: "70%"}}>
             <Typography variant="body2">¿No tiene cuenta? <a href="https://www.trak.es/">Solicite acceso</a> mediante tu fisioterapéutica o médico rehabilitador</Typography>
           </div>
-          <form onSubmit={e => this.handleSubmit(e, this.props.postURL)}>
+          <form onSubmit={e => this.handleSubmit(e)}>
             <div style={{height: "25%", minHeight: "150px"}}>
               <div style={{display: "block"}}>
                 <TextField 

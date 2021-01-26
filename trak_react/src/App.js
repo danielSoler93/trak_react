@@ -8,7 +8,8 @@ import URLS from './pages/pages'
 import LandingPage from './pages/index'
 import ClientPage from './pages/clientLogin'
 import AdminPage from './pages/AdminLogin'
-
+import AdminMainPage from './pages/adminMainPage'
+import clientMainPage from './pages/clientMainPage'
 
 
 const outerTheme = createMuiTheme({
@@ -38,7 +39,8 @@ function App() {
           <Route exact path={"/"} component={LandingPage}></Route>
           <Route path={URLS.clientLoginURL} component={ClientPage}></Route>
           <Route path={URLS.adminLoginURL} component={AdminPage}></Route>
-
+          <Route path={URLS.adminMainPage} component={AdminMainPage}></Route>
+          <Route path={URLS.clientMainPage} component={clientMainPage}></Route>
         </Switch>
       </ThemeProvider>
     </div>
