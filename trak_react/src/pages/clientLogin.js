@@ -11,9 +11,12 @@ class ClientPage extends React.Component {
         return(
             <TwoScreen leftScreen={<LeftScreen/>} 
             rightScreen={<RightScreen
-            text={"Accede al panel cliente"}/>}
+            text={"Accede al panel cliente"}
+            postURL={"http://127.0.0.1:8000/client/"}/>
+        }
             widthLeft={"60%"}
-            widthRight={"40%"} />
+            widthRight={"40%"}
+            />
             )
     }
   }

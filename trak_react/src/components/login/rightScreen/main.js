@@ -77,21 +77,17 @@ class RightScreen extends React.Component {
       this.state.conditions = this.valueCheckBox;
     }
 
-    handleSubmit(event) {
-      console.log(this.valueCheckBox)
+    handleSubmit(event, url) {
       if (this.valueCheckBox == false) {
         return false
       }
-      console.log(this.state);
-      axios.post('http://127.0.0.1:8000/client/', this.state)
+      axios.post(url, this.state)
       .then(res => {
-        console.log(res.data)
         if(res.data.response == false) {
           this.color_forget = "red"
           this.props.history.push(URLS.clientLoginURL);
         } else {
           this.color_forget = ""
-          console.log(URLS.adminLogin)
           this.props.history.push(URLS.adminLoginURL); 
         }
       })
@@ -102,7 +98,6 @@ class RightScreen extends React.Component {
 
     render() {
         const { classes } = this.props;
-        console.log(this.color_forget)
 
         return(
           <div className={classes.card}>
@@ -118,7 +113,7 @@ class RightScreen extends React.Component {
           <div style={{height: "10%", minHeight: "50px", margin: "auto", width: "70%"}}>
             <Typography variant="body2">¿No tiene cuenta? <a href="https://www.trak.es/">Solicite acceso</a> mediante tu fisioterapéutica o médico rehabilitador</Typography>
           </div>
-          <form onSubmit={e => this.handleSubmit(e)}>
+          <form onSubmit={e => this.handleSubmit(e, this.props.postURL)}>
             <div style={{height: "25%", minHeight: "150px"}}>
               <div style={{display: "block"}}>
                 <TextField 

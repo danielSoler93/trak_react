@@ -10,7 +10,9 @@ class AdminPage extends React.Component {
         return(
             <TwoScreen leftScreen={<LeftScreen/>} 
             rightScreen={<RightScreen
-            text={"Accede al panel administrador"}/>}
+            text={"Accede al panel administrador"}
+            postURL={"http://127.0.0.1:8000/physio/"}
+                />}
             widthLeft={"60%"}
             widthRight={"40%"} />
             )
